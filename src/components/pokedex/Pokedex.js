@@ -17,15 +17,25 @@ class Pokedex extends Component {
   }
 
   render() {
+
     function getPokemonId(url){
       return url.split("/pokemon/")[1].split("/")[0];
     }
 
-    const pokemonsJson = this.state.pokemons.map(pokemon => (
-      <li key={pokemon.url} className="Pokedex-list-item">
-        <PokemonCard pokemonName={pokemon.name} pokemonId={getPokemonId(pokemon.url)}/>
-      </li>
-    ));
+    const pokemonsJson = this.state.pokemons.map(pokemon => {
+
+      let pokemonCurrent = {
+        name: pokemon.name,
+        id: getPokemonId(pokemon.url)
+      };
+
+      return (
+        <li key={pokemon.url} className="Pokedex-list-item">
+          <PokemonCard pokemon={pokemonCurrent}/>
+        </li>
+      );
+
+    });
 
     return (
       <div className="container Pokedex">

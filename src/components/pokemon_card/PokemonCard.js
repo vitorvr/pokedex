@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PokemonSprite from '../pokemon_sprite/PokemonSprite';
+import PokemonImage from '../pokemon_image/PokemonImage';
 
 import './PokemonCard.scss';
 
@@ -9,10 +9,10 @@ class PokemonCard extends Component {
     return (
       <div className="PokemonCard">
         <div className="PokemonCard-sprite">
-          <PokemonSprite pokemonId={this.props.pokemonId} pokemonName={this.props.pokemonName}/>
+          <PokemonImage pokemon={this.props.pokemon}/>
         </div>
         <div className="PokemonCard-footer">
-          <span>{this.props.pokemonId}.{this.props.pokemonName}</span>
+          <span>{this.props.pokemon.id}.{this.props.pokemon.name}</span>
         </div>
       </div>
     );
