@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class PokemonSprite extends Component {
   render() {
     function mountSpriteUrl(id){
-      const url = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/",
+      const url = "./src/images/pokemon_images/",
             ext = ".png";
       return url + id + ext;
     }
