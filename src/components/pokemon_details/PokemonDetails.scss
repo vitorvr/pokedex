@@ -1,3 +1,48 @@
 .PokemonDetails {
-  
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 10000;
+  overflow: auto;
+
+  &-content {
+    width: 50%;
+    height: 97%;
+    top: 8px;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    vertical-align: middle;
+    display: table;
+    margin: auto;
+    //mobile width 94%
+  }
+
+  &-overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0, .5);
+  }
+
+  &-close {
+    top: 18px;
+    right: 20px;
+    color: #000;
+    position: absolute;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 2;
+
+    &:hover{color: gray;}
+
+  }
 }

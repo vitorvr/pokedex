@@ -17,7 +17,7 @@ class Pokedex extends Component {
   }
 
   componentWillMount() {
-    fetch('https://pokeapi.co/api/v2/pokemon/?limit=2')
+    fetch('https://pokeapi.co/api/v2/pokemon/?limit=9&offset=0')
       .then(response => response.json())
       .then(data => this.setState({pokemons: data.results}));
   }
@@ -31,7 +31,7 @@ class Pokedex extends Component {
 
     function getPokemonId(url){
       return url.split("/pokemon/")[1].split("/")[0];
-    }
+    } 
 
     const pokemonList = this.state.pokemons.map(pokemon => {
       pokemon.id = getPokemonId(pokemon.url);
@@ -44,7 +44,7 @@ class Pokedex extends Component {
 
     return (
       <div className="container Pokedex">
-        { this.state.showPokemonDetails ? <PokemonDetails showPokemonDetails={this.state.showPokemonDetails} pokemonUrl={this.state.pokemonDetail}/> : null }
+        { this.state.showPokemonDetails ? <PokemonDetails pokemonUrl={this.state.pokemonDetail}/> : null }
         <ul className="Pokedex-list">
           {pokemonList}
         </ul>

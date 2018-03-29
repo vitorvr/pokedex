@@ -10,11 +10,12 @@ class PokemonDetails extends Component {
   }
 
   render() {
-    console.log(this.props.pokemonUrl);
-    console.log(this.props.showPokemonDetails);
     return (
       <div className="PokemonDetails">
-      EITA
+        <div className="PokemonDetails-overlay" />
+        <div className="PokemonDetails-content">
+          <div className="PokemonDetails-close"/>
+        </div>
       </div>
     );
   }
