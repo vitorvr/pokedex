@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class PokemonImage extends Component {
+
+  constructor() {
+    super();
+    this.state = {}
+  }
+  
   render() {
     function mountSpriteUrl(id){
       const url = "images/pokemons/",

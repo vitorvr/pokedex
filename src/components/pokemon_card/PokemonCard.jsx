@@ -5,9 +5,18 @@ import './PokemonCard.scss';
 
 class PokemonCard extends Component {
 
+  constructor() {
+    super();
+    this.state = {}
+  }
+
+  openPokemonDetails(url) {
+    this.props.openPokemonDetails(url);
+  }
+
   render() {
     return (
-      <div className="PokemonCard">
+      <div className="PokemonCard" onClick={this.openPokemonDetails.bind(this, this.props.pokemon.url)}>
         <div className="PokemonCard-sprite">
           <PokemonImage pokemon={this.props.pokemon}/>
         </div>

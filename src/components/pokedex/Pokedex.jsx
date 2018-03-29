@@ -3,6 +3,7 @@ import './Pokedex.scss';
 import PokemonCard from '../pokemon_card/PokemonCard.jsx';
 
 class Pokedex extends Component {
+
   constructor() {
     super();
     this.state = {
@@ -16,32 +17,29 @@ class Pokedex extends Component {
       .then(data => this.setState({pokemons: data.results}));
   }
 
+  handleOpenPokemonsDetails(url){
+    console.log(url);
+  }
+
   render() {
 
     function getPokemonId(url){
       return url.split("/pokemon/")[1].split("/")[0];
     }
 
-    const pokemonListItens = this.state.pokemons.map(pokemon => {
-
-      let pokemonCurrent = {
-        name: pokemon.name,
-        url: pokemon.url,
-        id: getPokemonId(pokemon.url)
-      };
-
+    const pokemonList = this.state.pokemons.map(pokemon => {
+      pokemon.id = getPokemonId(pokemon.url);
       return (
         <li key={pokemon.url} className="Pokedex-list-item">
-          <PokemonCard pokemon={pokemonCurrent}/>
+          <PokemonCard openPokemonDetails={this.handleOpenPokemonsDetails.bind(this)} pokemon={pokemon}/>
         </li>
       );
-
     });
 
     return (
       <div className="container Pokedex">
         <ul className="Pokedex-list">
-          {pokemonListItens}
+          {pokemonList}
         </ul>
       </div>
     );
