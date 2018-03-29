@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
-import './Pokedex.scss';
 import PokemonCard from '../pokemon_card/PokemonCard.jsx';
+import PokemonDetails from '../pokemon_details/PokemonDetails.jsx';
+import ReactDOM from 'react-dom';
+
+import './Pokedex.scss';
 
 class Pokedex extends Component {
 
   constructor() {
     super();
     this.state = {
-      pokemons: []
+      pokemons: [],
+      showPokemonDetails: false,
+      pokemonDetail: ''
     }
   }
 
   componentWillMount() {
-    fetch('https://pokeapi.co/api/v2/pokemon/?limit=802')
+    fetch('https://pokeapi.co/api/v2/pokemon/?limit=2')
       .then(response => response.json())
       .then(data => this.setState({pokemons: data.results}));
   }
 
   handleOpenPokemonsDetails(url){
-    console.log(url);
+    this.setState({showPokemonDetails: true});
+    this.setState({pokemonDetail: url});
   }
 
   render() {
@@ -38,6 +44,7 @@ class Pokedex extends Component {
 
     return (
       <div className="container Pokedex">
+        { this.state.showPokemonDetails ? <PokemonDetails showPokemonDetails={this.state.showPokemonDetails} pokemonUrl={this.state.pokemonDetail}/> : null }
         <ul className="Pokedex-list">
           {pokemonList}
         </ul>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './PokemonDetails.scss';
+
 class PokemonDetails extends Component {
 
   constructor() {
@@ -8,9 +10,11 @@ class PokemonDetails extends Component {
   }
 
   render() {
+    console.log(this.props.pokemonUrl);
+    console.log(this.props.showPokemonDetails);
     return (
       <div className="PokemonDetails">
-        details
+      EITA
       </div>
     );
   }
