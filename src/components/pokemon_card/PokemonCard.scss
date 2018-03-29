@@ -1,20 +1,23 @@
 .PokemonCard {
   width: 150px;
   height: 150px;
-  margin: 10px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  margin: 9px 14px 0px 0px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  transition: 0.3s;
-  background: aliceblue;
-  &-sprite{
+  transition: 0.1s;
+  background: beige;
+
+  &-sprite {
     display: table;
     margin: 0 auto;
   }
-  &-footer{
+
+  &-footer {
     display: table;
     margin: 0 auto;
   }
-  &:hover{
+  
+  &:hover {
     transform: scale(1.1);
   }
 }

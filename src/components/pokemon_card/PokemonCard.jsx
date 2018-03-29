@@ -21,7 +21,7 @@ class PokemonCard extends Component {
           <PokemonImage pokemon={this.props.pokemon}/>
         </div>
         <div className="PokemonCard-footer">
-          <span>{this.props.pokemon.id}.{this.props.pokemon.name}</span>
+          <span>{this.props.pokemon.id}.&nbsp;{this.props.pokemon.name.replace(/\b\w/g, l => l.toUpperCase())}</span>
         </div>
       </div>
     );

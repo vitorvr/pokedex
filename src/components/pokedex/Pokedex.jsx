@@ -22,14 +22,18 @@ class Pokedex extends Component {
       .then(data => this.setState({pokemons: data.results}));
   }
 
-  handleOpenPokemonsDetails(url){
+  handleOpenPokemonsDetails(url) {
     this.setState({showPokemonDetails: true});
     this.setState({pokemonDetail: url});
   }
 
+  handleClosePokemonDetails() {
+    this.setState({showPokemonDetails: false});
+  }
+
   render() {
 
-    function getPokemonId(url){
+    function getPokemonId(url) {
       return url.split("/pokemon/")[1].split("/")[0];
     } 
 
@@ -44,7 +48,7 @@ class Pokedex extends Component {
 
     return (
       <div className="container Pokedex">
-        { this.state.showPokemonDetails ? <PokemonDetails pokemonUrl={this.state.pokemonDetail}/> : null }
+        { this.state.showPokemonDetails ? <PokemonDetails pokemonUrl={this.state.pokemonDetail} closePokemonDetails={this.handleClosePokemonDetails.bind(this)}/> : null }
         <ul className="Pokedex-list">
           {pokemonList}
         </ul>
