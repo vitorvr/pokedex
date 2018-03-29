@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Pokedex.scss';
-import PokemonCard from '../pokemon_card/PokemonCard';
+import PokemonCard from '../pokemon_card/PokemonCard.jsx';
 
 class Pokedex extends Component {
   constructor() {
