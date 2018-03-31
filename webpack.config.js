@@ -1,7 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-
 
 module.exports = {
   entry: './src/index.jsx',
@@ -33,16 +31,25 @@ module.exports = {
         ]
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
+        test: /\.(jpg|png|gif|svg|pdf|ico)$/,
         use: [
-          'file-loader',
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][hash:8].[ext]'
+            },
+          },
           {
             loader: 'image-webpack-loader',
             options: {
-              bypassOnDebug: false,
+              bypassOnDebug: true,
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
             },
           },
-        ],
+        ]
       }
     ]
   },
@@ -50,9 +57,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: "./src/index.html",
       filename: "./index.html"
-    }),
-    new CopyWebpackPlugin([
-      { from: 'src/images/', to: 'images/' },
-    ])
+    })
   ]
 };

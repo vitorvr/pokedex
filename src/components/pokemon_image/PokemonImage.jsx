@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './PokemonImage.scss';
+import'../../../images/pokemons/1.png'
 
 class PokemonImage extends Component {
 
@@ -8,16 +9,15 @@ class PokemonImage extends Component {
     super();
     this.state = {}
   }
-  
+
   render() {
-    function mountSpriteUrl(id){
-      const url = "images/pokemons/",
-            ext = ".png";
-      return url + id + ext;
-    }
+
+    const src = require(`../../../images/pokemons/${this.props.pokemon.id}.png`);
+
     return (
-      <img src={mountSpriteUrl(this.props.pokemon.id)} alt={this.props.pokemon.name}/>
+      <img src={src} alt={this.props.pokemon.name}/>
     );
+
   }
 }
 
