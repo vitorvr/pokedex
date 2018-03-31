@@ -35,7 +35,7 @@ class Pokedex extends Component {
 
     function getPokemonId(url) {
       return url.split("/pokemon/")[1].split("/")[0];
-    } 
+    }
 
     const pokemonList = this.state.pokemons.map(pokemon => {
       pokemon.id = getPokemonId(pokemon.url);

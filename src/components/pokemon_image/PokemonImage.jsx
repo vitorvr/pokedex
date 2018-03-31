@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './PokemonImage.scss';
+
 class PokemonImage extends Component {
 
   constructor() {
