@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
 import './PokemonImage.scss';
-import'../../../images/pokemons/1.png'
 
 class PokemonImage extends Component {
 
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props, context);
     this.state = {}
   }
 

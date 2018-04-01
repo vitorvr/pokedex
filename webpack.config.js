@@ -43,10 +43,6 @@ module.exports = {
             loader: 'image-webpack-loader',
             options: {
               bypassOnDebug: true,
-              pngquant: {
-                quality: '65-90',
-                speed: 4
-              },
             },
           },
         ]

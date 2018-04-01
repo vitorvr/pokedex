@@ -5,8 +5,8 @@ import './PokemonDetails.scss';
 
 class PokemonDetails extends Component {
 
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       pokemon: {},
       isLoading: true
@@ -17,8 +17,8 @@ class PokemonDetails extends Component {
     fetch(this.props.pokemonUrl)
       .then(response => response.json())
       .then(data => {
-        this.setState({pokemon: data});
-        this.setState({isLoading: false});
+        this.setState({ pokemon: data });
+        this.setState({ isLoading: false });
       });
   }
 
@@ -38,6 +38,7 @@ class PokemonDetails extends Component {
           </div>
           { this.state.isLoading ? <div className="Loading"/> : null }
           <div className="PokemonDetails-content-pokemon">
+            {this.state.pokemon.name}
             <PokemonImage pokemon={this.state.pokemon}/>
           </div>
         </div>

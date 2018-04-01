@@ -5,8 +5,8 @@ import './PokemonCard.scss';
 
 class PokemonCard extends Component {
 
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props, context);
     this.state = {}
   }
 

@@ -7,8 +7,8 @@ import './Pokedex.scss';
 
 class Pokedex extends Component {
 
-  constructor() {
-    super();
+  constructor(props, context) {
+    super(props, context);
     this.state = {
       pokemons: [],
       showPokemonDetails: false,
@@ -17,14 +17,14 @@ class Pokedex extends Component {
   }
 
   componentWillMount() {
-    fetch('https://pokeapi.co/api/v2/pokemon/?limit=9&offset=0')
+    fetch('https://pokeapi.co/api/v2/pokemon/?limit=2&offset=0')
       .then(response => response.json())
       .then(data => this.setState({pokemons: data.results}));
   }
 
   handleOpenPokemonsDetails(url) {
-    this.setState({showPokemonDetails: true});
     this.setState({pokemonDetail: url});
+    this.setState({showPokemonDetails: true});
   }
 
   handleClosePokemonDetails() {
