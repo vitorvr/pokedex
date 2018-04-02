@@ -36,13 +36,17 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[path][hash:8].[ext]'
+              name: './images/[hash:8].[ext]'
             },
           },
           {
             loader: 'image-webpack-loader',
             options: {
               bypassOnDebug: true,
+              pngquant: {
+                quality: '65-90',
+                speed: 10
+              },
             },
           },
         ]
