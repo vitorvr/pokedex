@@ -16,8 +16,8 @@ class Pokedex extends Component {
     }
   }
 
-  componentWillMount() {
-    fetch('https://pokeapi.co/api/v2/pokemon/?limit=2&offset=0')
+  componentDidMount() {
+    fetch('https://pokeapi.co/api/v2/pokemon/?limit=802&offset=0')
       .then(response => response.json())
       .then(data => this.setState({pokemons: data.results}));
   }

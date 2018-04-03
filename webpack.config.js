@@ -45,7 +45,7 @@ module.exports = {
               bypassOnDebug: true,
               pngquant: {
                 quality: '65-90',
-                speed: 10
+                speed: 6
               },
             },
           },
