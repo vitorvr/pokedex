@@ -7,6 +7,9 @@ module.exports = {
     filename: 'index.js',
     path: __dirname + '/build'
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [
       {
@@ -42,10 +45,10 @@ module.exports = {
           {
             loader: 'image-webpack-loader',
             options: {
-              bypassOnDebug: true,
+              bypassOnDebug: false,
               pngquant: {
                 quality: '65-90',
-                speed: 6
+                speed: 10
               },
             },
           },
@@ -61,5 +64,6 @@ module.exports = {
   ],
   devServer: {
     contentBase: './build',
+    publicPath: '/'
   }
 };
