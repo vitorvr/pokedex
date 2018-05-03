@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+  background: #1b1b24;
+  color: #8a8db7;
+}
+
 .Pokedex {
   font-family: 'Roboto', sans-serif;
   &-list {

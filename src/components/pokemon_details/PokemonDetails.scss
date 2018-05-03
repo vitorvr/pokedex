@@ -19,6 +19,7 @@
     vertical-align: middle;
     display: table;
     margin: auto;
+    background-color: #1b1b24;
     //mobile width 94%
     &-top {
       height: 45px;
@@ -39,7 +40,7 @@
     width: 100%;
     height: 100%;
     position: fixed;
-    background: rgba(0,0,0, .5);
+    background: rgba(0,0,0, .8);
   }
 
   &-close {
