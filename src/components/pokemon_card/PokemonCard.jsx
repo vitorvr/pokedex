@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PokemonImage from '../pokemon_image/PokemonImage.jsx';
+import PokemonImage from '../pokemon_image/PokemonImage';
 
 import './PokemonCard.scss';
 

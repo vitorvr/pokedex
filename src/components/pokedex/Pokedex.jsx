@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PokemonCard from '../pokemon_card/PokemonCard.jsx';
-import PokemonDetails from '../pokemon_details/PokemonDetails.jsx';
+import PokemonCard from '../pokemon_card/PokemonCard';
+import PokemonDetails from '../pokemon_details/PokemonDetails';
 import ReactDOM from 'react-dom';
 
 import './Pokedex.scss';
