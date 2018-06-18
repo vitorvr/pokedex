@@ -1,7 +1,8 @@
 const express = require('express');
 const axios = require('axios');
 const mcache = require('memory-cache');
-const cors = require('cors')
+const cors = require('cors');
+const path = require('path');
 
 const baseUrl = 'http://pokeapi.co/api/v2';
 const app = express();
@@ -26,6 +27,7 @@ const cache = (duration) => {
 };
 
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/pokedex/:subPath/:id', cache(10), (req, res) => {
   axios.get(`${baseUrl}/${req.params.subPath}/${req.params.id}`)
@@ -41,6 +43,10 @@ app.get('/pokedex', cache(10), (req, res) => {
     .catch(err => {
       console.log(err);
     })
+});
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.listen(3000, () => console.log('Listening on port 3000'));
