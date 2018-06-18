@@ -1,11 +1,12 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
 
 module.exports = {
-  entry: './src/index.jsx',
+  entry: './index.jsx',
   output: {
     filename: 'index.js',
-    path: __dirname + '/build'
+    path: path.resolve(__dirname, '../public'),
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -42,28 +43,28 @@ module.exports = {
               name: './images/[hash:8].[ext]'
             },
           },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              bypassOnDebug: false,
-              pngquant: {
-                quality: '65-90',
-                speed: 10
-              },
-            },
-          },
+          // {
+          //   loader: 'image-webpack-loader',
+          //   options: {
+          //     bypassOnDebug: false,
+          //     pngquant: {
+          //       quality: '50',
+          //       speed: 10
+          //     },
+          //   },
+          // },
         ]
       }
     ]
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
+      template: "./index.html",
       filename: "./index.html"
     })
   ],
   devServer: {
-    contentBase: './build',
+    contentBase: path.resolve(__dirname, '../public'),
     publicPath: '/'
   }
 };
