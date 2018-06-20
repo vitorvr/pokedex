@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PokemonCard from '../pokemon_card/PokemonCard';
-import PokemonDetails from '../pokemon_details/PokemonDetails';
+import PokemonModal from '../pokemon_modal/PokemonModal';
 import ReactDOM from 'react-dom';
 
 import './Pokedex.scss';
@@ -11,24 +11,24 @@ class Pokedex extends Component {
     super(props, context);
     this.state = {
       pokemons: [],
-      showPokemonDetails: false,
-      pokemonDetail: ''
+      showPokemonModal: false,
+      pokemon: ''
     }
   }
 
   componentDidMount() {
     fetch('http://localhost:3000/pokedex')
       .then(response => response.json())
-      .then(data => this.setState({pokemons: data.results}));
+      .then(data => this.setState({ pokemons: data.results }));
   }
 
-  handleOpenPokemonsDetails(url) {
-    this.setState({pokemonDetail: url});
-    this.setState({showPokemonDetails: true});
+  handleOpenPokemonModal(pokemon) {
+    this.setState({ pokemon: pokemon });
+    this.setState({ showPokemonModal: true });
   }
 
-  handleClosePokemonDetails() {
-    this.setState({showPokemonDetails: false});
+  handleClosePokemonModal() {
+    this.setState({ showPokemonModal: false });
   }
 
   render() {
@@ -41,14 +41,14 @@ class Pokedex extends Component {
       pokemon.id = getPokemonId(pokemon.url);
       return (
         <li key={pokemon.url} className="Pokedex-list-item">
-          <PokemonCard openPokemonDetails={this.handleOpenPokemonsDetails.bind(this)} pokemon={pokemon}/>
+          <PokemonCard openPokemonModal={this.handleOpenPokemonModal.bind(this)} pokemon={pokemon} />
         </li>
       );
     });
 
     return (
       <div className="container Pokedex">
-        { this.state.showPokemonDetails ? <PokemonDetails pokemonUrl={this.state.pokemonDetail} closePokemonDetails={this.handleClosePokemonDetails.bind(this)}/> : null }
+        {this.state.showPokemonModal ? <PokemonModal pokemon={this.state.pokemon} closePokemonModal={this.handleClosePokemonModal.bind(this)} /> : null}
         <ul className="Pokedex-list">
           {pokemonList}
         </ul>

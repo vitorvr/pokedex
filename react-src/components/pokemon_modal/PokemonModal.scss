@@ -1,4 +1,4 @@
-.PokemonDetails {
+.PokemonModal {
   top: 0;
   left: 0;
   right: 0;
@@ -10,8 +10,8 @@
   overflow: auto;
 
   &-content {
-    width: 780px;
-    height: 92%;
+    width: 95%;
+    height: 95%;
     top: 30px;
     background: #fff;
     border-radius: 5px;
@@ -30,6 +30,10 @@
       display: table;
       margin: 0 auto;
     }
+    &-image {
+      height: 250px;
+      width: 250px;
+    }
   }
 
   &-overlay {
@@ -46,7 +50,7 @@
   &-close {
     top: 15px;
     right: 10px;
-    color: #000;
+    color: #FFF;
     position: absolute;
     font-size: 18px;
     cursor: pointer;

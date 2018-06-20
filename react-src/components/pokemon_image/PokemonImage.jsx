@@ -14,7 +14,7 @@ class PokemonImage extends Component {
     const src = require(`../../images/pokemons/${this.props.pokemon.id}.png`);
 
     return (
-      <img src={src} alt={this.props.pokemon.name}/>
+      <img src={src} alt={this.props.pokemon.name} className={this.props.from}/>
     );
 
   }

@@ -29,7 +29,7 @@ const cache = (duration) => {
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/pokedex/:subPath/:id', cache(10), (req, res) => {
+app.get('/pokedex/:subPath/:id', cache(50000), (req, res) => {
   axios.get(`${baseUrl}/${req.params.subPath}/${req.params.id}`)
     .then(response => res.json(response.data))
     .catch(err => {

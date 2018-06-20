@@ -10,15 +10,15 @@ class PokemonCard extends Component {
     this.state = {}
   }
 
-  openPokemonDetails(url) {
-    this.props.openPokemonDetails(url);
+  openPokemonModal(pokemon) {
+    this.props.openPokemonModal(pokemon);
   }
 
   render() {
     return (
-      <div className="PokemonCard" onClick={this.openPokemonDetails.bind(this, this.props.pokemon.url)}>
+      <div className="PokemonCard" onClick={this.openPokemonModal.bind(this, this.props.pokemon)}>
         <div className="PokemonCard-sprite">
-          <PokemonImage pokemon={this.props.pokemon}/>
+          <PokemonImage pokemon={this.props.pokemon} from="pokemon-card"/>
         </div>
         <div className="PokemonCard-footer">
           <span>{this.props.pokemon.id}.&nbsp;{this.props.pokemon.name.replace(/\b\w/g, l => l.toUpperCase())}</span>
