@@ -4,7 +4,11 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon"
+    "client-install": "npm install --prefix react-src",
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "start-client": "npm start --prefix react-src",
+    "dev": "concurrently \"npm run server\" \"npm run start-client\"" 
   },
   "repository": {
     "type": "git",
@@ -18,7 +22,8 @@
   "homepage": "https://github.com/vitorvr/pokeapi_wrapper#readme",
   "dependencies": {
     "axios": "0.18.0",
-    "cors": "^2.8.4",
+    "concurrently": "3.6.0",
+    "cors": "2.8.4",
     "express": "4.16.3",
     "memory-cache": "0.2.0"
   }
